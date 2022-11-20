@@ -1,0 +1,16 @@
+---
+- name: Dell OS10
+  hosts: 10.2.3.18
+  gather_facts: false
+  collections:
+    - dellemc.os10
+    - community.general.log_plays
+  tasks:
+    - name: Ping
+      dellos10_command:
+        commands:
+          - show version
+      register: result
+
+    - name: Output
+      debug: var=result.stdout_lines
