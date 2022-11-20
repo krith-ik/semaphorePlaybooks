@@ -1,6 +1,6 @@
 ---
 - name: Dell OS10
-  hosts: 10.2.3.18
+  hosts: Leaf1
   gather_facts: false
   collections:
     - dellemc.os10
