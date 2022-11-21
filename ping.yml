@@ -9,7 +9,7 @@
     - name: Ping
       dellos10_command:
         commands:
-          - show version
+          - ping 10.3.3.19
       register: result
 
     - name: Output
