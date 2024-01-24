@@ -1,0 +1,14 @@
+---
+- hosts: iOS
+  gather_facts: false
+  tasks:
+    - name: getTimestamp
+      command: date +%Y%m%d-%H-%M-%S
+      register: timestamp
+
+    - name: configBackup
+      ios_config:
+              backup: yes
+              backup_options:
+                      filename: "running-config-{{ timestamp.stdout }}"
+                      dir_path: "/home/dccsadmin//Backup/iOS/{{ inventory_hostname }}"
